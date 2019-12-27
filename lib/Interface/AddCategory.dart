@@ -9,6 +9,7 @@ class AddCategory extends StatefulWidget {
 }
 
 class _AddCategoryState extends State<AddCategory> {
+
   final GlobalKey<FormState> _contactFormKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController aInput;
@@ -57,7 +58,7 @@ class _AddCategoryState extends State<AddCategory> {
         resizeToAvoidBottomPadding: false,
         body: WillPopScope(
             onWillPop: () {
-              Navigator.pushNamed(context, "HomeScreen");
+              Navigator.pushNamed(context, "InterfaceHomeScreen");
             },
             child: SizedBox(
               child: Form(
@@ -159,7 +160,7 @@ class _AddCategoryState extends State<AddCategory> {
                                         .then((result) => {
                                               callSnackBar("Uploaded!!!"),
                                               Navigator.pushNamed(
-                                                  context, "HomeScreen"),
+                                                  context, "InterfaceHomeScreen"),
                                               aInput.clear(),
                                               imageInput.clear(),
                                               priceInput.clear(),

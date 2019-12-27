@@ -1,5 +1,10 @@
 import 'dart:io';
 
+import 'package:carigari_admin/Arrangements/Size.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 
 
@@ -54,20 +59,20 @@ Widget theDrawer(BuildContext context)
               onPressed: () async {
                 print("clicked yes");
                 // loggingOut(context);
-                 await FirebaseAuth.instance
-                               .signOut()
-                  // Navigator.pushNamed(context, "ScreenSelection");
-                               .then((result) =>
-                                  //  Navigator.pushReplacementNamed(context, "Splash")
+              //    await FirebaseAuth.instance
+              //                  .signOut()
+              //     // Navigator.pushNamed(context, "ScreenSelection");
+              //                  .then((result) =>
+              //                     //  Navigator.pushReplacementNamed(context, "Splash")
                                   
-                                  //  Navigator.pushReplacementNamed(context, "ScreenSelection")
-                                  null
-                                   )
-                               .catchError((err) => print(err));  
-                // exit(0);
-              print("after");
-                Navigator.pushReplacementNamed(context, "ScreenSelection");
-                print("success");
+              //                     //  Navigator.pushReplacementNamed(context, "ScreenSelection")
+              //                     null
+              //                      )
+              //                  .catchError((err) => print(err));  
+              //   // exit(0);
+              // print("after");
+              //   Navigator.pushReplacementNamed(context, "ScreenSelection");
+              //   print("success");
               },
             ),
             
@@ -80,16 +85,26 @@ Widget theDrawer(BuildContext context)
     return Drawer(
           child: new ListView(
             children: <Widget>[
-            
+              
+                          //  new ListTile(
+                          //    leading: Icon(Icons.account_box,color:Colors.green),
+                          //    title: new Text("My Account"),
+                          //    // title: new Text('My Account',style:TextStyle(color:Colors.black),),
+                          //    onTap: () {
+                          //      Navigator.pushNamed(context,'AccountInfo');
+                          //    },
+                          //  ),
+                           // new Divider(),
                            new ListTile(
                              leading: Icon(Icons.account_box,color:Colors.green),
-                             title: new Text("My Account"),
+                             title: new Text("Change Mode"),
                              // title: new Text('My Account',style:TextStyle(color:Colors.black),),
                              onTap: () {
-                               Navigator.pushNamed(context,'AccountInfo');
+                               Navigator.pushNamed(context, "TopFirstScreen");
+                              //  Navigator.pushNamed(context,'AccountInfo');
                              },
                            ),
-                           // new Divider(),
+                           new Divider(),
                            new ListTile(
                              leading: new Icon(Icons.call,color: Colors.red,),
                              title: new Text('Contact Us'),
@@ -110,7 +125,7 @@ Widget theDrawer(BuildContext context)
                            ),
                            new ListTile(
                              leading: new Icon(Icons.edit),
-                             title: new Text('Contact Form'),
+                             title: new Text('Feedback '),
                              onTap: () {
                                Navigator.pushNamed(context, 'ContactForm');
                              },
@@ -119,7 +134,7 @@ Widget theDrawer(BuildContext context)
                              leading: new Icon(Icons.code),
                              title: new Text('About'),
                              onTap: () {
-                               Navigator.pushNamed(context, 'About');
+                               Navigator.pushNamed(context, 'AboutScreen');
                              },
                            ),
                            new ListTile(
@@ -144,12 +159,12 @@ Widget theDrawer(BuildContext context)
                              },
                            ),
              
-                         new ListTile(
-                           title: new Text('Logout'),
-                           onTap: () {
-                             show();
-                              },
-                                         ),
+                        //  new ListTile(
+                        //    title: new Text('Logout'),
+                        //    onTap: () {
+                        //      show();
+                        //       },
+                        //                  ),
                                          
                                        ],
                                      ),

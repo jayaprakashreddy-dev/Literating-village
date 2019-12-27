@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 int TempIndex;
 var store;
 List<DocumentSnapshot> category = [];
+
+List<DocumentSnapshot> schemes = [];
 TextEditingController aG = new TextEditingController();
 TextEditingController imageG = new TextEditingController();
 TextEditingController priceG = new TextEditingController();
 
-
-var schemes;

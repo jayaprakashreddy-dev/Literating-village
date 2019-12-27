@@ -1,4 +1,5 @@
 import 'dart:io';
+import '../Arrangements/drawer.dart';
 import 'package:carigari_admin/Arrangements/variables.dart' as global;
 import 'package:carigari_admin/Arrangements/Size.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -33,13 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
     QuerySnapshot qp;
     qp = await Firestore.instance.collection("farmers").getDocuments();
     global.category.isEmpty ? global.category.addAll(qp.documents) : null;
-    QuerySnapshot qp2;
-    qp2= await Firestore.instance.collection("schemes").getDocuments();
+    // QuerySnapshot qpp;
+    // qpp= await Firestore.instance.collection("schemes").getDocuments();
+    // print("before");
+    // global.schemes.isEmpty ? global.schemes.addAll(qpp.documents) : null;
     
-    // global.schemes.isEmpty ? global.category.addAll(qp.documents) : null;
-    // // global.schemes.add(qp2.documents);
     // print(global.schemes[0].data['sample']);
-    // print(global.category[0].data['a']);
+    //  print("after");
     setState(() {
       isLoading = false;
     });
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   //   ctxt,
                   //   new MaterialPageRoute(builder: (ctxt) => new Privacy()),
                   // );
-                  Navigator.pushNamed(context, "HomeScreen");
+                  Navigator.pushNamed(context, "InfoHomeScreen");
                   // Navigator.pop(context);
                 },
               ),
@@ -98,12 +99,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Farmers And Buyers Interface"),
       ),
-      drawer:drawer(context),
+      drawer:theDrawer(context),
       body: WillPopScope(
         onWillPop: () {
-          // Navigator.pushNamed(context,''),
+          // Navigator.pushNamed(context,'TopFirstScreen');
           show();
-        }
+        },
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
