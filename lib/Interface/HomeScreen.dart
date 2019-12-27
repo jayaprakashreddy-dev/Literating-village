@@ -33,10 +33,17 @@ class _HomeScreenState extends State<HomeScreen> {
     QuerySnapshot qp;
     qp = await Firestore.instance.collection("farmers").getDocuments();
     global.category.isEmpty ? global.category.addAll(qp.documents) : null;
+    QuerySnapshot qp2;
+    qp2= await Firestore.instance.collection("schemes").getDocuments();
+    
+    // global.schemes.isEmpty ? global.category.addAll(qp.documents) : null;
+    // // global.schemes.add(qp2.documents);
+    // print(global.schemes[0].data['sample']);
     // print(global.category[0].data['a']);
     setState(() {
       isLoading = false;
     });
+    
   }
 
   @override
