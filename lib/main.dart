@@ -1,9 +1,8 @@
+import 'package:carigari_admin/Interface/AddCategory.dart';
+import 'package:carigari_admin/Interface/EditScreen.dart';
+import 'package:carigari_admin/Interface/HomeScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import './variables.dart' as global;
-import './HomeScreen.dart';
-import './AddCategory.dart';
-import './EditScreen.dart';
 
 void main() => runApp(MyApp());
 

@@ -1,15 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './Size.dart';
-import './variables.dart' as global;
+import 'package:carigari_admin/Arrangements/variables.dart' as global;
 
-class EditCategory extends StatefulWidget {
+class AddCategory extends StatefulWidget {
   @override
-  _EditCategoryState createState() => _EditCategoryState();
+  _AddCategoryState createState() => _AddCategoryState();
 }
 
-class _EditCategoryState extends State<EditCategory> {
+class _AddCategoryState extends State<AddCategory> {
   final GlobalKey<FormState> _contactFormKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController aInput;
@@ -21,6 +20,21 @@ class _EditCategoryState extends State<EditCategory> {
     imageInput = new TextEditingController();
     priceInput = new TextEditingController();
   }
+
+  //  void callSnackBar(String msg,[int er])
+  // {
+
+  //     // msg="There is no record with this user, please register first by clicking Register";
+  //     final SnackBar=new SnackBar(
+  //     content: new Text(msg),
+  //     duration: new Duration(seconds: 3),
+  //   //   action: new SnackBarAction(label: "Register",
+  //   //   onPressed: (){
+  //   //     Navigator.pushNamed(context, "Register");
+  //   //   },),
+  //   );
+  //    _scaffoldKey.currentState.showSnackBar(SnackBar);
+  //   }
 
   void callSnackBar(String msg) {
     _scaffoldKey.currentState
@@ -36,8 +50,8 @@ class _EditCategoryState extends State<EditCategory> {
 
         // resizeToAvoidBottomPadding: false,
         appBar: AppBar(
-          title: Text("Update Details"),
-          backgroundColor: Colors.green,
+          title: Text("Details Of The Product"),
+          backgroundColor: Colors.orangeAccent,
         ),
         // key: _scaffoldKey,
         resizeToAvoidBottomPadding: false,
@@ -50,19 +64,7 @@ class _EditCategoryState extends State<EditCategory> {
                 key: _contactFormKey,
                 child: ListView(
                   children: <Widget>[
-                    Text("\n"),
-                    Text(
-                      "  \tProduct Description/Updating for " +
-                          global.category[global.TempIndex].data['a'],
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                        // SizeConfig.blockSizeVertical * 2.9,
-                      ),
-                    ),
-
-                    // Text("\n\n"),
+                    Text("\n\n"),
                     Padding(
                       padding: EdgeInsets.only(
                         top: 20.0,
@@ -72,14 +74,13 @@ class _EditCategoryState extends State<EditCategory> {
                       ),
                       child: TextFormField(
                         controller: aInput,
-                        // validator: nameValidator,
+                        validator: nameValidator,
                         style: textStyle,
                         // keyboardType: Text(),
                         decoration: InputDecoration(
                             labelStyle: textStyle,
-                            labelText: " Name",
-                            hintText:
-                                global.category[global.TempIndex].data['a'],
+                            labelText: "Name",
+                            hintText: " Name of the product to be displayed",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -95,13 +96,13 @@ class _EditCategoryState extends State<EditCategory> {
                       ),
                       child: TextFormField(
                         controller: imageInput,
-                        // validator: linkValidator,
+                        validator: linkValidator,
                         style: textStyle,
                         // keyboardType: Text(),
                         decoration: InputDecoration(
                             labelStyle: textStyle,
-                            labelText: " Image Link",
-                            hintText: " Enter image URL (Exact Link)",
+                            labelText: "Image Link",
+                            hintText: " Paste image URL (Exact Link)",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -117,11 +118,11 @@ class _EditCategoryState extends State<EditCategory> {
                         controller: priceInput,
                         style: textStyle,
                         maxLength: 7,
-                        // validator: phoneValidator,
+                        validator: phoneValidator,
                         decoration: InputDecoration(
                             labelStyle: textStyle,
-                            labelText: " Price ₹",
-                            hintText: " Enter Price in ₹",
+                            labelText: "Price ₹",
+                            hintText: "Enter Price in ₹",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -133,7 +134,7 @@ class _EditCategoryState extends State<EditCategory> {
                         child: Center(
                             child: InkWell(
                                 child: Text(
-                                  "  Submit  ",
+                                  "Submit",
                                   style: TextStyle(
                                       backgroundColor: Colors.blueAccent,
                                       fontSize: 40),
@@ -141,50 +142,29 @@ class _EditCategoryState extends State<EditCategory> {
 
                                 // color: Colors.redAccent,
                                 onTap: () async {
-                                  global.aG = (aInput.text == null
-                                      ? global
-                                          .category[global.TempIndex].data['a']
-                                      : aInput);
-                                  global.priceG = (priceInput.text == null
-                                      ? global.category[global.TempIndex]
-                                          .data['price']
-                                      : priceInput);
-                                  global.imageG = (imageInput.text == null
-                                      ? global.category[global.TempIndex]
-                                          .data['image']
-                                      : imageInput);
-
-                                  print(global.aG.text);
-                                  print(global.priceG.text);
-                                  print(global.imageG.text);
-                                  print("stored");
-                                  print(global.aG.text);
-
                                   print("jhg");
                                   if (_contactFormKey.currentState.validate()) {
                                     //  callSnackBar("Submitting !!!");
 
-                                    callSnackBar(
-                                        "Updating the Details Please wait!!");
+                                    callSnackBar("Uploading Please wait");
                                     Firestore.instance
-                                        .collection('category')
-                                        .document(global.store)
-                                        .updateData({
-                                          "a": global.aG.text,
+                                        .collection('farmers')
+                                        .document(aInput.text)
+                                        .setData({
+                                          "a": aInput.text,
                                           // "uid": currentUser.uid,
-                                          "image": global.imageG.text,
-                                          "price": global.priceG.text,
+                                          "image": imageInput.text,
+                                          "price": priceInput.text,
                                         })
                                         .then((result) => {
-                                              callSnackBar(
-                                                  "Updated successfully!!!"),
+                                              callSnackBar("Uploaded!!!"),
                                               Navigator.pushNamed(
                                                   context, "HomeScreen"),
                                               aInput.clear(),
                                               imageInput.clear(),
                                               priceInput.clear(),
                                             })
-                                        .catchError((err) => callSnackBar(
+                                        .catchError((err) => print(
                                             "Something went wrong!!please check internet Connectivity"));
                                   } else {
                                     callSnackBar(
@@ -195,5 +175,29 @@ class _EditCategoryState extends State<EditCategory> {
                 ),
               ),
             )));
+  }
+
+  String nameValidator(String value) {
+    if (value.length < 3) {
+      return "please fill this field with atleast 3 characters";
+    } else {
+      return null;
+    }
+  }
+
+  String phoneValidator(String value) {
+    if (value.length == 0) {
+      return 'Phone Number must be of 1 digits';
+    } else {
+      return null;
+    }
+  }
+
+  String linkValidator(String value) {
+    if (value.length == 0) {
+      return 'It must be a Link';
+    } else {
+      return null;
+    }
   }
 }

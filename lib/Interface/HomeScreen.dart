@@ -1,9 +1,8 @@
 import 'dart:io';
-
-import 'package:carigari_admin/Size.dart';
+import 'package:carigari_admin/Arrangements/variables.dart' as global;
+import 'package:carigari_admin/Arrangements/Size.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import './variables.dart' as global;
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);

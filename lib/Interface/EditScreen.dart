@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import './Size.dart';
+import 'package:carigari_admin/Arrangements/Size.dart';
+import 'package:carigari_admin/Arrangements/variables.dart' as global;
 
-class AddCategory extends StatefulWidget {
+class EditCategory extends StatefulWidget {
   @override
-  _AddCategoryState createState() => _AddCategoryState();
+  _EditCategoryState createState() => _EditCategoryState();
 }
 
-class _AddCategoryState extends State<AddCategory> {
+class _EditCategoryState extends State<EditCategory> {
   final GlobalKey<FormState> _contactFormKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   TextEditingController aInput;
@@ -20,21 +21,6 @@ class _AddCategoryState extends State<AddCategory> {
     imageInput = new TextEditingController();
     priceInput = new TextEditingController();
   }
-
-  //  void callSnackBar(String msg,[int er])
-  // {
-
-  //     // msg="There is no record with this user, please register first by clicking Register";
-  //     final SnackBar=new SnackBar(
-  //     content: new Text(msg),
-  //     duration: new Duration(seconds: 3),
-  //   //   action: new SnackBarAction(label: "Register",
-  //   //   onPressed: (){
-  //   //     Navigator.pushNamed(context, "Register");
-  //   //   },),
-  //   );
-  //    _scaffoldKey.currentState.showSnackBar(SnackBar);
-  //   }
 
   void callSnackBar(String msg) {
     _scaffoldKey.currentState
@@ -50,8 +36,8 @@ class _AddCategoryState extends State<AddCategory> {
 
         // resizeToAvoidBottomPadding: false,
         appBar: AppBar(
-          title: Text("Details Of The Product"),
-          backgroundColor: Colors.orangeAccent,
+          title: Text("Update Details"),
+          backgroundColor: Colors.green,
         ),
         // key: _scaffoldKey,
         resizeToAvoidBottomPadding: false,
@@ -64,7 +50,19 @@ class _AddCategoryState extends State<AddCategory> {
                 key: _contactFormKey,
                 child: ListView(
                   children: <Widget>[
-                    Text("\n\n"),
+                    Text("\n"),
+                    Text(
+                      "  \tProduct Description/Updating for " +
+                          global.category[global.TempIndex].data['a'],
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        // SizeConfig.blockSizeVertical * 2.9,
+                      ),
+                    ),
+
+                    // Text("\n\n"),
                     Padding(
                       padding: EdgeInsets.only(
                         top: 20.0,
@@ -74,13 +72,14 @@ class _AddCategoryState extends State<AddCategory> {
                       ),
                       child: TextFormField(
                         controller: aInput,
-                        validator: nameValidator,
+                        // validator: nameValidator,
                         style: textStyle,
                         // keyboardType: Text(),
                         decoration: InputDecoration(
                             labelStyle: textStyle,
-                            labelText: "Name",
-                            hintText: " Name of the product to be displayed",
+                            labelText: " Name",
+                            hintText:
+                                global.category[global.TempIndex].data['a'],
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -96,13 +95,13 @@ class _AddCategoryState extends State<AddCategory> {
                       ),
                       child: TextFormField(
                         controller: imageInput,
-                        validator: linkValidator,
+                        // validator: linkValidator,
                         style: textStyle,
                         // keyboardType: Text(),
                         decoration: InputDecoration(
                             labelStyle: textStyle,
-                            labelText: "Image Link",
-                            hintText: " Paste image URL (Exact Link)",
+                            labelText: " Image Link",
+                            hintText: " Enter image URL (Exact Link)",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -118,11 +117,11 @@ class _AddCategoryState extends State<AddCategory> {
                         controller: priceInput,
                         style: textStyle,
                         maxLength: 7,
-                        validator: phoneValidator,
+                        // validator: phoneValidator,
                         decoration: InputDecoration(
                             labelStyle: textStyle,
-                            labelText: "Price ₹",
-                            hintText: "Enter Price in ₹",
+                            labelText: " Price ₹",
+                            hintText: " Enter Price in ₹",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -134,7 +133,7 @@ class _AddCategoryState extends State<AddCategory> {
                         child: Center(
                             child: InkWell(
                                 child: Text(
-                                  "Submit",
+                                  "  Submit  ",
                                   style: TextStyle(
                                       backgroundColor: Colors.blueAccent,
                                       fontSize: 40),
@@ -142,29 +141,50 @@ class _AddCategoryState extends State<AddCategory> {
 
                                 // color: Colors.redAccent,
                                 onTap: () async {
+                                  global.aG = (aInput.text == null
+                                      ? global
+                                          .category[global.TempIndex].data['a']
+                                      : aInput);
+                                  global.priceG = (priceInput.text == null
+                                      ? global.category[global.TempIndex]
+                                          .data['price']
+                                      : priceInput);
+                                  global.imageG = (imageInput.text == null
+                                      ? global.category[global.TempIndex]
+                                          .data['image']
+                                      : imageInput);
+
+                                  print(global.aG.text);
+                                  print(global.priceG.text);
+                                  print(global.imageG.text);
+                                  print("stored");
+                                  print(global.aG.text);
+
                                   print("jhg");
                                   if (_contactFormKey.currentState.validate()) {
                                     //  callSnackBar("Submitting !!!");
 
-                                    callSnackBar("Uploading Please wait");
+                                    callSnackBar(
+                                        "Updating the Details Please wait!!");
                                     Firestore.instance
                                         .collection('category')
-                                        .document(aInput.text)
-                                        .setData({
-                                          "a": aInput.text,
+                                        .document(global.store)
+                                        .updateData({
+                                          "a": global.aG.text,
                                           // "uid": currentUser.uid,
-                                          "image": imageInput.text,
-                                          "price": priceInput.text,
+                                          "image": global.imageG.text,
+                                          "price": global.priceG.text,
                                         })
                                         .then((result) => {
-                                              callSnackBar("Uploaded!!!"),
+                                              callSnackBar(
+                                                  "Updated successfully!!!"),
                                               Navigator.pushNamed(
                                                   context, "HomeScreen"),
                                               aInput.clear(),
                                               imageInput.clear(),
                                               priceInput.clear(),
                                             })
-                                        .catchError((err) => print(
+                                        .catchError((err) => callSnackBar(
                                             "Something went wrong!!please check internet Connectivity"));
                                   } else {
                                     callSnackBar(
@@ -175,29 +195,5 @@ class _AddCategoryState extends State<AddCategory> {
                 ),
               ),
             )));
-  }
-
-  String nameValidator(String value) {
-    if (value.length < 3) {
-      return "please fill this field with atleast 3 characters";
-    } else {
-      return null;
-    }
-  }
-
-  String phoneValidator(String value) {
-    if (value.length == 0) {
-      return 'Phone Number must be of 1 digits';
-    } else {
-      return null;
-    }
-  }
-
-  String linkValidator(String value) {
-    if (value.length == 0) {
-      return 'It must be a Link';
-    } else {
-      return null;
-    }
   }
 }
