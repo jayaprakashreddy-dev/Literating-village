@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "7508455112",
+    "firebase_url": "https://carigari-furnitures.firebaseio.com",
+    "project_id": "carigari-furnitures",
+    "storage_bucket": "carigari-furnitures.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7508455112:android:02fb2d7812345a5b53fffd",
+        "android_client_info": {
+          "package_name": "com.example.carigari_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7508455112-cmk372p3o8r6u7bcok4lilg8um27o18c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9KOZmY1SLEPaXi0Cwp_VMwgaacGCp8mU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7508455112-cmk372p3o8r6u7bcok4lilg8um27o18c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7508455112:android:09aab0b731bf2f9b53fffd",
+        "android_client_info": {
+          "package_name": "conversionguru.in.carigari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7508455112-hevafjorsm2l415jak7g07ftpcq8o63g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "conversionguru.in.carigari",
+            "certificate_hash": "ef266008646c1e5978729bf4343a16d54a72782e"
+          }
+        },
+        {
+          "client_id": "7508455112-cmk372p3o8r6u7bcok4lilg8um27o18c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9KOZmY1SLEPaXi0Cwp_VMwgaacGCp8mU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7508455112-cmk372p3o8r6u7bcok4lilg8um27o18c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
