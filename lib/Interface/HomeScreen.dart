@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     : global.category[index].data['name'],
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w800,
                                   // fontSize: SizeConfig.blockSizeVertical * 2.9,
                                 )),
                             subtitle: Text("Price Starts from ₹ " +
@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     null
                                 ? "Not yet"
                                 : "Price Starts from  ₹ " +
-                                    global.category[index].data['price']),
+                                    global.category[index].data['price']+" per Quintal",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black),),
                             // dense: true,
                             // onTap: () {
                             //   // Navigator.pushNamed(context,"ContactUs");

@@ -1,4 +1,8 @@
+import 'package:carigari_admin/Data/contactForm.dart';
+import 'package:carigari_admin/Data/help.dart';
+import 'package:carigari_admin/Info/Info/pop.dart';
 import 'package:carigari_admin/Info/SelectInfo.dart';
+import 'package:carigari_admin/Info/schemes/schemes.dart';
 import 'package:carigari_admin/Interface/AddCategory.dart';
 // import 'package:carigari_admin/Interface/EditScreen.dart';
 import 'package:carigari_admin/Interface/HomeScreen.dart';
@@ -28,6 +32,10 @@ class MyApp extends StatelessWidget {
         'AboutScreen':(BuildContext context)=> new About(),
         'InfoSelectScreen':(BuildContext context)=> new SelectInfoscreen(),
         'TopFirstScreen':(BuildContext context)=> new SelectFirstscreen(),
+        'SchemeScreen':(BuildContext context)=> new Schemes(),
+        'PopScreen':(BuildContext context)=> new Pop(),
+        'HelpScreen':(BuildContext context)=> new Help(),
+        'ContactScreen':(BuildContext context)=> new ContactForm(),
        
       },
     );

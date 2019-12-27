@@ -105,29 +105,29 @@ Widget theDrawer(BuildContext context)
                              },
                            ),
                            new Divider(),
-                           new ListTile(
-                             leading: new Icon(Icons.call,color: Colors.red,),
-                             title: new Text('Contact Us'),
-                             onTap: () {
-                               Navigator.pushNamed(context, "ContactUs");
-                             },
-                           ),
-                           new ListTile(
+              //              new ListTile(
+              //                leading: new Icon(Icons.call,color: Colors.red,),
+              //                title: new Text('Contact Us'),
+              //                onTap: () {
+              //                  Navigator.pushNamed(context, "ContactUs");
+              //                },
+              //              ),
+              //              new ListTile(
                              
-                             title: new Text('Live Chat'),
-                             leading: new Icon(Icons.chat_bubble_outline),
-                             onTap: () {
-                               print("whats app");
-                             //  var whatsappUrl ="whatsapp://send?phone=$phone";
-                         canLaunch("whatsapp://send?phone=+0919010590693") != null? launch("whatsapp://send?phone=+0919010590693"):print("open whatsapp app link or do a snackbar with notification that there is no whatsapp installed");
-               // need to work if it wont work
-                             },
-                           ),
+              //                title: new Text('Live Chat'),
+              //                leading: new Icon(Icons.chat_bubble_outline),
+              //                onTap: () {
+              //                  print("whats app");
+              //                //  var whatsappUrl ="whatsapp://send?phone=$phone";
+              //            canLaunch("whatsapp://send?phone=+0919010590693") != null? launch("whatsapp://send?phone=+0919010590693"):print("open whatsapp app link or do a snackbar with notification that there is no whatsapp installed");
+              //  // need to work if it wont work
+              //                },
+              //              ),
                            new ListTile(
                              leading: new Icon(Icons.edit),
                              title: new Text('Feedback '),
                              onTap: () {
-                               Navigator.pushNamed(context, 'ContactForm');
+                               Navigator.pushNamed(context, 'ContactScreen');
                              },
                            ),
                            new ListTile(
@@ -137,19 +137,19 @@ Widget theDrawer(BuildContext context)
                                Navigator.pushNamed(context, 'AboutScreen');
                              },
                            ),
-                           new ListTile(
-                             leading: new Icon(Icons.add_alert),
-                             title: new Text('Notifications'),
-                             onTap: () {
-                               Navigator.pushNamed(context, 'Notification');
-                             },
-                           ),
+                          //  new ListTile(
+                          //    leading: new Icon(Icons.add_alert),
+                          //    title: new Text('Notifications'),
+                          //    onTap: () {
+                          //      Navigator.pushNamed(context, 'Notification');
+                          //    },
+                          //  ),
                            // new Divider(color:Colors.red,),
                            new ListTile(
                              leading: new Icon(Icons.live_help),
                              title: new Text('Help'),
                              onTap: () {
-                               Navigator.pushNamed(context, 'Help');
+                               Navigator.pushNamed(context, 'HelpScreen');
                              },
                            ),
                             new ListTile(

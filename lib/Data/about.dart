@@ -29,14 +29,14 @@ class _AboutState extends State<About> {
              child: Column(
                children: <Widget>[
                   // ShowImage("logo"),
-                
+            Text("\n\n"),
             Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7AH9OUj6WxCcWIyjwYHcMQg0odBMRLsHk1LcWRWnTGngycCAF&s'),
            Text("About\n",style: TextStyle(fontSize: 25),),
             InkWell(
-                    child: new Text('About Carigari Furnitures',style:TextStyle(fontSize: 20.0,color: Colors.red, decoration: TextDecoration.underline)),
+                    child: new Text('About Literating Village Application',style:TextStyle(fontSize: 20.0,color: Colors.red, decoration: TextDecoration.underline)),
                 onTap: () async {
             if (await canLaunch("http://www.carigarifurniture.com//")) {
-              await launch("http://www.carigarifurniture.com//");
+              await launch("http://www.missionantyodaya.nic.in//");
             }
                 }
                 

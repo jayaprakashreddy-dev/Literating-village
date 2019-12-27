@@ -41,10 +41,11 @@ class SelectFirstscreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: GridTile(
-                    child: Image.network(
-                      'https://2.bp.blogspot.com/-UQ_8m5wg2X0/W8XMcvEIK1I/AAAAAAAABf0/G-YRvkV6UZ4TUBvTnPf5pTlemcYbGpEOQCK4BGAYYCw/s1600/Schemes%2Bof%2BRural%2BIndia........Highlights.jpg',
-                      fit: BoxFit.fill,
-                    ),
+                    child: Image.asset("assets/images/sellFarm.jpg",fit: BoxFit.fitHeight,),
+                    // Image.network(
+                    //   'https://2.bp.blogspot.com/-UQ_8m5wg2X0/W8XMcvEIK1I/AAAAAAAABf0/G-YRvkV6UZ4TUBvTnPf5pTlemcYbGpEOQCK4BGAYYCw/s1600/Schemes%2Bof%2BRural%2BIndia........Highlights.jpg',
+                    //   fit: BoxFit.fill,
+                    // ),
                     footer: GestureDetector(
                          onTap: () {
 
@@ -112,11 +113,12 @@ class SelectFirstscreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: GridTile(
-                    child: Image.network(
-                      'https://www.jagranjosh.com/imported/images/E/Articles/Ministry-of-Rural-Development.jpg',
-                      fit: BoxFit.fill,
+                    child: Image.asset("assets/images/info.jpg",fit: BoxFit.fitHeight,),
+                    // child: Image.network(
+                    //   'https://www.jagranjosh.com/imported/images/E/Articles/Ministry-of-Rural-Development.jpg',
+                    //   fit: BoxFit.fill,
                       
-                    ),
+                    // ),
                     footer: GestureDetector(
                         onTap: () {
                           Navigator.pushNamed(context, "InfoSelectScreen");
