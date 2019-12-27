@@ -96,7 +96,7 @@ class _AddCategoryState extends State<AddCategory> {
                       ),
                       child: TextFormField(
                         controller: imageInput,
-                        validator: linkValidator,
+                        // validator: linkValidator,
                         style: textStyle,
                         // keyboardType: Text(),
                         decoration: InputDecoration(
@@ -151,7 +151,7 @@ class _AddCategoryState extends State<AddCategory> {
                                         .collection('farmers')
                                         .document(aInput.text)
                                         .setData({
-                                          "a": aInput.text,
+                                          "name": aInput.text,
                                           // "uid": currentUser.uid,
                                           "image": imageInput.text,
                                           "price": priceInput.text,

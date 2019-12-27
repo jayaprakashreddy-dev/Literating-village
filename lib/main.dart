@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Carigari Admin',
+      title: 'Literating Village',
       theme: ThemeData(
-        primarySwatch: Colors.brown,
+        primarySwatch: Colors.green,
       ),
-      home: HomeScreen(title: 'Carigari Admin Page'),
+      home: HomeScreen(title: 'Literating Village'),
       routes: <String,WidgetBuilder>
       {
         'HomeScreen':(BuildContext context)=> new HomeScreen(),

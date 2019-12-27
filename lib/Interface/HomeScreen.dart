@@ -118,14 +118,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (context, index) {
                           return Card(
                               child: ListTile(
-                            // leading: CircleAvatar(
-                            //   backgroundImage: NetworkImage(global
-                            //               .category[index].data['image'] ==
-                            //           null
-                            //       ? "https://www.ikea.com/PIAimages/0638582_PE699001_S5.JPG?f=s"
-                            //       : global.category[index].data['image']),
-                            // ),
-                            // contentPadding: EdgeInsets.all(5),
+                            leading: CircleAvatar(
+                              backgroundImage: NetworkImage(global
+                                          .category[index].data['image'] ==
+                                      null
+                                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7AH9OUj6WxCcWIyjwYHcMQg0odBMRLsHk1LcWRWnTGngycCAF&s"
+                                  : global.category[index].data['image']),
+                            ),
+                            contentPadding: EdgeInsets.all(5),
                             title: Text(
                                 global.category[index].data['name'] == null
                                     ? "No Name"
