@@ -83,7 +83,7 @@ class SelectInfoscreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height* 0.40,
             child: GestureDetector(
                onTap: () {
-                          Navigator.pushNamed(context, "SchemeScreen");
+                          Navigator.pushNamed(context, "PopScreen");
                },
                           child: Card(
                 shape: RoundedRectangleBorder(
@@ -102,6 +102,7 @@ class SelectInfoscreen extends StatelessWidget {
                     ),
                     footer: GestureDetector(
                         onTap: () {
+                          print("object");
                           Navigator.pushNamed(context, "PopScreen");
                       
                         // Navigator.of(context).pushNamed(
