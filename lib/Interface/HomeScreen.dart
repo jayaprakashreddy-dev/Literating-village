@@ -98,11 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Farmers And Buyers Interface"),
       ),
+      drawer:drawer(context),
       body: WillPopScope(
         onWillPop: () {
           // Navigator.pushNamed(context,''),
           show();
-        },
+        }
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
