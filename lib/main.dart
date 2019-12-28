@@ -3,6 +3,7 @@ import 'package:carigari_admin/Data/help.dart';
 import 'package:carigari_admin/Data/privacy.dart';
 import 'package:carigari_admin/Info/Info/InfoSelect.dart';
 import 'package:carigari_admin/Info/Info/RevenueArea.dart';
+import 'package:carigari_admin/Info/Info/officersInfo.dart';
 import 'package:carigari_admin/Info/Info/pop.dart';
 import 'package:carigari_admin/Info/SelectInfo.dart';
 import 'package:carigari_admin/Interface/AddCategory.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         'InfoSelect':(BuildContext context)=> new Village(),
         'RevArea':(BuildContext context)=> new RevArea(),
         'Privacy':(BuildContext context)=> new Privacy(),
+        'OfficersInfo':(BuildContext context)=> new OfficersInfo(),
         
       },
     );

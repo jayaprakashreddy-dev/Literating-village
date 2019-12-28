@@ -107,9 +107,11 @@ class _SubCategoryState extends State<SubCategory> {
         ),
       ),
         floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: ()async {
           // AddCategory();
-          launch("tel:+919010590694");
+          var phone=global.category[global.TempIndex].data['phone'];
+              await launch('tel:${phone.toString()}');
+          // launch("tel:+919010590694");
           // Navigator.pushNamed(context, "AddCategory");
         },
         tooltip: 'phone',

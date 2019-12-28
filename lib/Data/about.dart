@@ -22,7 +22,7 @@ class _AboutState extends State<About> {
     drawer: theDrawer(context),
     body: WillPopScope(
           onWillPop: (){
-            Navigator.pushNamed(context, 'HomeScreen');
+            Navigator.pushNamed(context, 'TopFirstScreen');
           },
       //  child: Text("\n\n\n  About plan will be started soon",style: TextStyle(fontSize:SizeConfig.blockSizeVertical * 2.5,color: Colors.green),),
            child: Center(
@@ -35,7 +35,7 @@ class _AboutState extends State<About> {
             InkWell(
                     child: new Text('About Literating Village Application',style:TextStyle(fontSize: 20.0,color: Colors.red, decoration: TextDecoration.underline)),
                 onTap: () async {
-            if (await canLaunch("http://www.carigarifurniture.com//")) {
+            if (await canLaunch("http://www.missionantyodaya.nic.in//")) {
               await launch("http://www.missionantyodaya.nic.in//");
             }
                 }

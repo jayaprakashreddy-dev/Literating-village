@@ -8,7 +8,7 @@ class Village extends StatelessWidget {
     List<String> info = [];
     info.add("PopScreen");
     info.add("RevArea");
-    info.add("3rd screen");
+    info.add("OfficersInfo");
     List<String> title = [];
     title.add("Village Poppulation");
     title.add("Revenue Area");

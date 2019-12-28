@@ -158,6 +158,14 @@ Widget theDrawer(BuildContext context)
                                Navigator.pushNamed(context,'Privacy');
                              },
                            ),
+                           new ListTile(
+                             leading: new Icon(Icons.exit_to_app),
+                             title: new Text('Exit'),
+                             onTap: () {
+                              //  Navigator.pushNamed(context, 'ContactScreen');
+                              exit(0);
+                             },
+                           ),
              
                         //  new ListTile(
                         //    title: new Text('Logout'),

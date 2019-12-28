@@ -102,14 +102,14 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer:theDrawer(context),
       body: WillPopScope(
         onWillPop: () {
-          // Navigator.pushNamed(context,'TopFirstScreen');
-          show();
+          Navigator.pushNamed(context,'TopFirstScreen');
+          // show();
         },
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("\nList Of Category/Products:-\n"),
+              Text("\nLIST OF PRODUCTS :-\n"),
               Divider(
                 color: Colors.deepOrangeAccent,
                 height: 5.0,
