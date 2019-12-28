@@ -2,20 +2,26 @@ import 'package:carigari_admin/Arrangements/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:carigari_admin/Arrangements/variables.dart' as global;
+import 'scheme.dart';
 
-class Schemes extends StatefulWidget {
+
+class Schemescreen extends StatefulWidget {
   @override
-  _SchemesState createState() => _SchemesState();
+  _SchemescreenState createState() => _SchemescreenState();
 }
 
-class _SchemesState extends State<Schemes> {
+class _SchemescreenState extends State<Schemescreen> {
+
   @override
   Widget build(BuildContext context) {
+          final index = ModalRoute.of(context).settings.arguments ; 
+
     return Scaffold(
       drawer: theDrawer(context),
       appBar: AppBar(
-        title: Text(
-          "Pradhan Mantri Awas Yojana",
+        title: Text(global.scheme[index].data['title']
+          ,
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
@@ -52,8 +58,7 @@ class _SchemesState extends State<Schemes> {
 
             Padding(
               padding: EdgeInsets.only(left: 20, right: 18),
-              child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+              child: Text(global.scheme[index].data['desc'],
                 style: TextStyle(
                     fontSize: 18.0, fontWeight: FontWeight.w500, height: 1.5),
                 textAlign: TextAlign.justify,
@@ -78,8 +83,7 @@ class _SchemesState extends State<Schemes> {
 
             Padding(
               padding: EdgeInsets.only(left: 20, right: 18),
-              child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+              child: Text(global.scheme[index].data['keyp'],
                 style: TextStyle(
                     fontSize: 18.0, fontWeight: FontWeight.w500, height: 1.5),
                 textAlign: TextAlign.justify,
@@ -104,8 +108,7 @@ class _SchemesState extends State<Schemes> {
 
             Padding(
               padding: EdgeInsets.only(left: 20, right: 18),
-              child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+              child: Text(global.scheme[index].data['keyo'],
                 style: TextStyle(
                     fontSize: 18.0, fontWeight: FontWeight.w500, height: 1.5),
                 textAlign: TextAlign.justify,
@@ -127,20 +130,24 @@ class _SchemesState extends State<Schemes> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
-            Center(
-              child: InkWell(
-                onTap: ()async {
-                     if (await canLaunch("http://www.missionantyodaya.nic.in//")) {
-              await launch("http://www.missionantyodaya.nic.in//");
-            }
-                },
-                child: Text(
-                  "missionantyodaya.nic.in",
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.normal),
+            Padding(
+                            padding: EdgeInsets.only(left: 20, right: 18),
+
+                          child: Center(
+                child: InkWell(
+                  onTap: ()async {
+                       if (await canLaunch("http://${global.scheme[index].data['web']}//")) {
+                await launch("http://${global.scheme[index].data['web']}//");
+              }
+                  },
+                  child: Text(
+                    global.scheme[index].data['web'],
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FontStyle.normal),
+                  ),
                 ),
               ),
             ),
@@ -184,13 +191,19 @@ class _SchemesState extends State<Schemes> {
               backgroundColor: Colors.green,
               label: 'Call',
               labelStyle: TextStyle(fontSize: 18.0),
-              onTap: () => launch("tel:+919010590693")),
+              onTap: () async{
+                var phone=global.scheme[index].data['mob'];
+              await launch('tel:${phone.toString()}');
+            //  await launch("tel:/+${global.scheme[index].data['mob].toString()}");
+              }
+              
+              ),
           SpeedDialChild(
             child: Icon(Icons.mail),
             backgroundColor: Colors.lightBlueAccent,
             label: 'Mail',
             labelStyle: TextStyle(fontSize: 18.0),
-            onTap: () =>launch("mailto:v.jayaprakash999@gmail.com"),
+            onTap: () =>launch("mailto:wim@nic.in"),
           ),
           SpeedDialChild(
             child: Icon(Icons.web),
@@ -198,7 +211,7 @@ class _SchemesState extends State<Schemes> {
             label: 'WebSite',
             labelStyle: TextStyle(fontSize: 18.0),
             onTap: () async=>
-              await launch("http://www.missionantyodaya.nic.in//"),
+              await launch("http://${global.scheme[index].data['web']}//"),
             
           ),
         ],

@@ -5,7 +5,7 @@ int TempIndex;
 var store;
 List<DocumentSnapshot> category = [];
 
-List<DocumentSnapshot> schemes = [];
+List<DocumentSnapshot> scheme = [];
 TextEditingController aG = new TextEditingController();
 TextEditingController imageG = new TextEditingController();
 TextEditingController priceG = new TextEditingController();
