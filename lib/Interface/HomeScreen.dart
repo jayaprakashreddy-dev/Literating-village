@@ -150,24 +150,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ? "Not yet"
                                 : "Price Starts from  ₹ " +
                                     global.category[index].data['price']+" per Quintal",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black),),
-                            // dense: true,
-                            // onTap: () {
-                            //   // Navigator.pushNamed(context,"ContactUs");
-                            //   // Navigator.pushNamed(context, "SubCategory");
-                            //   // SubCategory(index);
+                            dense: true,
+                            onTap: () {
+                              print("clcick");
+                              // Navigator.pushNamed(context,"ContactUs");
+                              // Navigator.pushNamed(context, "SubCategory");
+                              // SubCategory(index);
 
-                            //   //jp
-                            //   // global.TempIndex = index;
-                            //   global.store =
-                            //       global.category[global.TempIndex].data['a'];
-                            //   // Navigator.pushNamed(context, "EditScreen");
-                            //   //jp
-                            //   print("clicked for " + global.store);
-                            //   callSnackBar("clicked ");
-                            //   // print("clicked" +
-                            //   //     global.category[index].data['a'] +
-                            //   //     global.TempIndex.toString());
-                            // },
+                              //jp
+                              global.TempIndex = index;
+                              // global.store =
+                              //     global.category[global.TempIndex].data['a'];
+                              // Navigator.pushNamed(context, "EditScreen");
+                              //jp
+                              // print("clicked for " + global.store);
+                              Navigator.pushNamed(context, "SubCategory");
+                              // callSnackBar("clicked ");
+                              // print("clicked" +
+                              //     global.category[index].data['a'] +
+                              //     global.TempIndex.toString());
+                            },
                           ));
                         },
                       ),

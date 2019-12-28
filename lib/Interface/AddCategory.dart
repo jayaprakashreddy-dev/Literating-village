@@ -1,3 +1,4 @@
+import 'package:carigari_admin/Arrangements/drawer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class _AddCategoryState extends State<AddCategory> {
     // TODO: implement build
     return new Scaffold(
         key: _scaffoldKey,
-
+        drawer: theDrawer(context),
         // resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text("Details Of The Product"),
@@ -65,12 +66,12 @@ class _AddCategoryState extends State<AddCategory> {
                 key: _contactFormKey,
                 child: ListView(
                   children: <Widget>[
-                    Text("\n\n"),
+                    // Text("\n\n"),
                     Padding(
                       padding: EdgeInsets.only(
-                        top: 20.0,
+                        top:5.0,
                         //  SizeConfig.blockSizeVertical * 1.5,
-                        bottom: 20.0,
+                        bottom: 5.0,
                         // SizeConfig.blockSizeVertical * 1.5
                       ),
                       child: TextFormField(
@@ -80,8 +81,30 @@ class _AddCategoryState extends State<AddCategory> {
                         // keyboardType: Text(),
                         decoration: InputDecoration(
                             labelStyle: textStyle,
+                            labelText: "Crop",
+                            hintText: " Name of the product/crop to be displayed",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(500.0
+                                    // SizeConfig.blockSizeVertical*1.5
+                                    ))),
+                      ),
+                    ),
+                      Padding(
+                      padding: EdgeInsets.only(
+                        top:5.0,
+                        //  SizeConfig.blockSizeVertical * 1.5,
+                        bottom: 5.0,
+                        // SizeConfig.blockSizeVertical * 1.5
+                      ),
+                      child: TextFormField(
+                        // controller: aInput,
+                        validator: nameValidator,
+                        style: textStyle,
+                        // keyboardType: Text(),
+                        decoration: InputDecoration(
+                            labelStyle: textStyle,
                             labelText: "Name",
-                            hintText: " Name of the product to be displayed",
+                            hintText: " Farmer's Name",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -90,9 +113,9 @@ class _AddCategoryState extends State<AddCategory> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        top: 20.0,
+                        top: 10.0,
                         //  SizeConfig.blockSizeVertical * 1.5,
-                        bottom: 20.0,
+                        bottom: 10.0,
                         // SizeConfig.blockSizeVertical * 1.5
                       ),
                       child: TextFormField(
@@ -102,8 +125,8 @@ class _AddCategoryState extends State<AddCategory> {
                         // keyboardType: Text(),
                         decoration: InputDecoration(
                             labelStyle: textStyle,
-                            labelText: "Image Link",
-                            hintText: " Paste image URL (Exact Link)",
+                            labelText: "Image Link (Optional)",
+                            hintText: " Paste image URL",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -111,7 +134,7 @@ class _AddCategoryState extends State<AddCategory> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 10.0, bottom: 10.0
+                      padding: EdgeInsets.only(top: 5.0, bottom: 5.0
                           // top: SizeConfig.blockSizeVertical*1.5,bottom:SizeConfig.blockSizeVertical*1.5
                           ),
                       child: TextFormField(
@@ -123,7 +146,27 @@ class _AddCategoryState extends State<AddCategory> {
                         decoration: InputDecoration(
                             labelStyle: textStyle,
                             labelText: "Price ₹",
-                            hintText: "Enter Price in ₹",
+                            hintText: "Enter Price in ₹ per Quintal",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(500.0
+                                    // SizeConfig.blockSizeVertical*1.5
+                                    ))),
+                      ),
+                    ),
+                     Padding(
+                      padding: EdgeInsets.only(top: 5.0, bottom: 5.0
+                          // top: SizeConfig.blockSizeVertical*1.5,bottom:SizeConfig.blockSizeVertical*1.5
+                          ),
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        // controller: priceInput,
+                        style: textStyle,
+                        maxLength: 10,
+                        validator: phoneValidator,
+                        decoration: InputDecoration(
+                            labelStyle: textStyle,
+                            labelText: "Mobile",
+                            hintText: "Enter Mobile Number (+91)",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(500.0
                                     // SizeConfig.blockSizeVertical*1.5
@@ -133,16 +176,16 @@ class _AddCategoryState extends State<AddCategory> {
                     Padding(
                         padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                         child: Center(
-                            child: InkWell(
+                            child: FlatButton(
                                 child: Text(
                                   "Submit",
                                   style: TextStyle(
-                                      backgroundColor: Colors.blueAccent,
+                                      // backgroundColor: Colors.blueAccent,
                                       fontSize: 40),
                                 ),
 
-                                // color: Colors.redAccent,
-                                onTap: () async {
+                                color: Colors.lightGreen,
+                                onPressed: () async {
                                   print("jhg");
                                   if (_contactFormKey.currentState.validate()) {
                                     //  callSnackBar("Submitting !!!");

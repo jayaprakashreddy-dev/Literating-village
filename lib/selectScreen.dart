@@ -1,3 +1,4 @@
+// import 'dart:html';
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -5,6 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class SelectFirstscreen extends StatelessWidget {
+
+   var _dropforms= [
+   'Village1'
+  ]; 
+  var _dropformSelected="Village1";
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +22,39 @@ class SelectFirstscreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(5.0),
           ),
+            Padding(
+                          padding: EdgeInsets.only(top: 20.0,bottom:20.0,left: 50.0 ),
+                      child:
+                      Row(
+                        children: <Widget>[
+
+                       Text("Select by Village",style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.w500),),
+                       SizedBox(
+                         width: 40.0,
+                       ),
+                      DropdownButton<String>(
+                      items: _dropforms.map((String dropDownStringItem)
+                      {
+                         return DropdownMenuItem<String>(
+                            value: dropDownStringItem,
+                            child: Text(dropDownStringItem,style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.w500),),
+
+                         );
+                      }).toList(),
+                      onChanged: (String newValueSelected){
+                         this._dropformSelected =newValueSelected;
+                        // setState(() {
+
+                        //   this._dropformSelected =newValueSelected;
+                        // });
+                      },
+                      value: _dropformSelected,
+                      ),
+                       ],
+                      )
+                ),
           Container(
             height:MediaQuery.of(context).size.height* 0.40,
             child: GestureDetector(

@@ -1,3 +1,4 @@
+import 'package:carigari_admin/Arrangements/drawer.dart';
 import 'package:carigari_admin/Arrangements/variables.dart' as global;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,7 @@ class _SchemeState extends State<Scheme> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: theDrawer(context),
       appBar: AppBar(
         title: Text("Schemes"),
         backgroundColor: Colors.orangeAccent,
@@ -75,7 +77,7 @@ class _SchemeState extends State<Scheme> {
             child: 
             global.scheme.length == 0
                 ? Center(
-                    child: Text('Data!!!'),
+                    child: Text('Loading!!!'),
                   ):
                  GridView.builder(
                     padding: const EdgeInsets.all(10.0),

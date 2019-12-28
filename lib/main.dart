@@ -1,10 +1,14 @@
 import 'package:carigari_admin/Data/contactForm.dart';
 import 'package:carigari_admin/Data/help.dart';
+import 'package:carigari_admin/Data/privacy.dart';
+import 'package:carigari_admin/Info/Info/InfoSelect.dart';
+import 'package:carigari_admin/Info/Info/RevenueArea.dart';
 import 'package:carigari_admin/Info/Info/pop.dart';
 import 'package:carigari_admin/Info/SelectInfo.dart';
 import 'package:carigari_admin/Interface/AddCategory.dart';
 // import 'package:carigari_admin/Interface/EditScreen.dart';
 import 'package:carigari_admin/Interface/HomeScreen.dart';
+import 'package:carigari_admin/Interface/Productsdetails.dart';
 import 'package:carigari_admin/selectScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +42,11 @@ class MyApp extends StatelessWidget {
         'PopScreen':(BuildContext context)=> new Pop(),
         'HelpScreen':(BuildContext context)=> new Help(),
         'ContactScreen':(BuildContext context)=> new ContactForm(),
-       
+        'SubCategory':(BuildContext context)=> new SubCategory(),
+        'InfoSelect':(BuildContext context)=> new Village(),
+        'RevArea':(BuildContext context)=> new RevArea(),
+        'Privacy':(BuildContext context)=> new Privacy(),
+        
       },
     );
   }
